@@ -68,9 +68,3 @@ El programa imprime una tabla de tiempos por consola y guarda dos gráficas:
 - En el ordenamiento, bubble sort crece de forma cuadrática (al duplicar n, el tiempo se multiplica aproximadamente por 4), mientras que `sorted()` casi no cambia.
 
 **Resultados obtenidos:** [COMPLETAR DESPUÉS DE EJECUTAR EL CÓDIGO: pegar las gráficas y una tabla corta con los tiempos reales, y comentar si coinciden con lo esperado.]
-
-## Autores
-
-- [Nombre 1]
-- [Nombre 2]
-- [Nombre 3]
