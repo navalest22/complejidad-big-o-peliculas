@@ -3,12 +3,11 @@ import time
 import random
 import matplotlib.pyplot as plt
 
-ARCHIVO = "peliculas.csv"   # el CSV descargado de Kaggle
-COLUMNA = "title"           # nombre de la columna con los títulos
+ARCHIVO = "peliculas.csv"
+COLUMNA = "title"
 
 
 class Peliculas:
-    """Lee el CSV y guarda los títulos en una lista."""
 
     def __init__(self, archivo, columna):
         self.titulos = []
@@ -17,30 +16,25 @@ class Peliculas:
             for fila in lector:
                 if fila[columna] != "":
                     self.titulos.append(fila[columna])
-        random.shuffle(self.titulos)  # mezclar para que no estén ordenados
+        random.shuffle(self.titulos)
         print("Títulos cargados:", len(self.titulos))
 
 
 class Buscador:
-    """Dos formas de buscar un título."""
 
     def buscar_en_lista(self, lista, objetivo):
-        # O(n): revisa uno por uno
         for titulo in lista:
             if titulo == objetivo:
                 return True
         return False
 
     def buscar_en_set(self, conjunto, objetivo):
-        # O(1): va directo
         return objetivo in conjunto
 
 
 class Ordenador:
-    """Dos formas de ordenar una lista."""
 
     def bubble_sort(self, lista):
-        # O(n²): dos ciclos anidados
         a = lista.copy()
         n = len(a)
         for i in range(n):
@@ -52,12 +46,10 @@ class Ordenador:
         return a
 
     def ordenar_python(self, lista):
-        # sorted() de Python: O(n log n)
         return sorted(lista)
 
 
 class Experimento:
-    """Mide los tiempos y hace las gráficas."""
 
     def __init__(self, titulos):
         self.titulos = titulos
@@ -76,7 +68,6 @@ class Experimento:
             datos = self.titulos[:n]
             conjunto = set(datos)
 
-            # 100 títulos que sí están y 100 que no (peor caso)
             consultas = random.sample(datos, 100)
             for i in range(100):
                 consultas.append("no_existe_" + str(i))
@@ -141,7 +132,6 @@ class Experimento:
         plt.savefig("grafica_ordenamiento.png")
 
 
-# ---------- Programa principal ----------
 peliculas = Peliculas(ARCHIVO, COLUMNA)
 experimento = Experimento(peliculas.titulos)
 
